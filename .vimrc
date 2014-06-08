@@ -46,10 +46,13 @@ Bundle 'Lokaltog/vim-easymotion'
 " map <Leader>k <Plug>(easymotion-k)
 Bundle 'Proj'
 Bundle 'Valloric/YouCompleteMe'
+let g:ycm_add_preview_to_completeopt=0
+let g:ycm_confirm_extra_conf=0
 let g:ycm_collect_identifiers_from_tags_files = 0
 let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
 let g:ycm_seed_identifiers_with_syntax = 1
 let g:ycm_confirm_extra_conf = 0
+set completeopt-=preview
 Bundle 'airblade/vim-gitgutter'
 let g:gitgutter_eager = 1
 let g:gitgutter_realtime = 1
@@ -76,6 +79,7 @@ Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
 let g:syntastic_javascript_syntax_checker = 'jshint'
+let g:syntastic_check_on_open=1
 let g:syntastic_always_populate_loc_list=1
 let g:syntastic_ruby_exec = "/Users/jogara/.rvm/rubies/ruby-2.1.0/bin/ruby"
 let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['haml'] }
@@ -106,6 +110,9 @@ Bundle 'tpope/vim-unimpaired.git'
 Bundle 'vim-scripts/ruby-matchit.git'
 Bundle 'kchmck/vim-coffee-script'
 Bundle "tpope/vim-pathogen"
+Bundle 'Raimondi/delimitMate'
+Bundle 'marijnh/tern_for_vim'
+Bundle 'wincent/Command-T'
 execute pathogen#infect()
 
 
@@ -148,6 +155,7 @@ nmap <leader>l yss
 set clipboard=unnamed
 highlight def link rubyRspec Function
 imap <S-CR> <CR><CR>end<Esc>-cc
+imap <C-c> <CR><Esc>O
 
 set cursorline
 set colorcolumn=120
@@ -217,7 +225,7 @@ autocmd BufReadPre *.js let b:javascript_lib_use_backbone = 0
 autocmd BufReadPre *.js let b:javascript_lib_use_prelude = 0
 autocmd BufReadPre *.js let b:javascript_lib_use_angularjs = 1
 
-let mapleader="-"
+let mapleader=","
 
 map <C-n> :NERDTreeToggle<CR>
 nnoremap <F3> :NumbersToggle<CR>

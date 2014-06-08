@@ -66,5 +66,11 @@ alias bs='bundle exec rspec'
 alias zs='zeus rspec'
 alias be='bundle exec'
 alias vi='vim'
+alias prodcon='muster console production'
+alias mus='cd ~/src/muster'
+alias int='cd ~/src/intercom'
+alias emb='cd ~/src/embercom'
+alias kapow='touch ~/.pow/restart.txt'
+alias gam='git commit --amend'
 
 export EDITOR=vim
