@@ -6,7 +6,6 @@ Pry.commands.alias_command 'c', 'continue' rescue nil
 Pry.commands.alias_command 's', 'step' rescue nil
 Pry.commands.alias_command 'n', 'next' rescue nil
 Pry.commands.alias_command 'r!', 'reload!' rescue nil
-
 Pry.config.color = true
 
 # $ gem install pry-theme
@@ -24,10 +23,6 @@ Pry.config.prompt = [
 ]
 
 # === Listing config ===
-# Better colors - by default the headings for methods are too
-# similar to method name colors leading to a "soup"
-# These colors are optimized for use with Solarized scheme
-# for your terminal
 Pry.config.ls.heading_color = :magenta
 Pry.config.ls.public_method_color = :green
 Pry.config.ls.protected_method_color = :yellow
@@ -44,13 +39,13 @@ end
 
 # https://github.com/michaeldv/awesome_print/
 # $ gem install awesome_print
-#begin
-#  require 'awesome_print'
-#  Pry.config.print = proc { |output, value| output.puts value.ai(:indent => 2) }
-#rescue LoadError => e
-#  warn "[WARN] #{e}"
-#  puts '$ gem install awesome_print'
-#end
+begin
+  require 'awesome_print'
+  Pry.config.print = proc { |output, value| output.puts value.ai(:indent => 2) }
+rescue LoadError => e
+  warn "[WARN] #{e}"
+  puts '$ gem install awesome_print'
+end
 
 # Use Array.toy to get an array to play with
 class Array
