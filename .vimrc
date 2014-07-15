@@ -19,15 +19,13 @@ set mouse=a
 "More useable timeouts for leaders etc.
 set timeout timeoutlen=3000 ttimeoutlen=100
 
-set viminfo^=!
-
 set guifont=Source\ Code\ Pro:h12
 set number
 set numberwidth=5
 
 set nocompatible               " be iMproved
 filetype off "This need to be set before running bundle stuff
-set rtp+=~/.vim/bundle/vundle/
+set rtp+=~/.vim/bundle/Vundle.vim/
 call vundle#rc()
 
 " let Vundle manage Vundle
