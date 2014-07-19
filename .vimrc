@@ -79,7 +79,7 @@ Bundle 'scrooloose/syntastic'
 let g:syntastic_javascript_syntax_checker = 'jshint'
 let g:syntastic_check_on_open=1
 let g:syntastic_always_populate_loc_list=1
-let g:syntastic_ruby_exec = "/Users/jogara/.rvm/rubies/ruby-2.1.0/bin/ruby"
+let g:syntastic_ruby_exec = "/Users/waheedel/.rvm/rubies/ruby-2.1.0/bin/ruby"
 let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['haml'] }
 let g:syntastic_ruby_checkers = ['rubocop']
 let g:syntastic_c_checkers = ['make', 'splint']
