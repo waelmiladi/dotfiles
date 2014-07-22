@@ -1,6 +1,10 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
+export BOXEN_MYSQL_PORT=13306
+export BOXEN_MONGODB_PORT=17017
+export BOXEN_REDIS_URL=redis://localhost:16379
+
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
@@ -45,13 +49,20 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git ruby osx rails)
 
 source $ZSH/oh-my-zsh.sh
+unsetopt correct
+unsetopt correct_all
 
 # User configuration
 
 export PATH="bin:/opt/boxen/rbenv/shims:/opt/boxen/rbenv/bin:/opt/boxen/rbenv/plugins/ruby-build/bin:/opt/boxen/phantomenv/shims:/opt/boxen/phantomenv/bin:node_modules/.bin:/opt/boxen/nodenv/shims:/opt/boxen/nodenv/bin:/opt/boxen/bin:/opt/boxen/homebrew/bin:/opt/boxen/homebrew/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin"
+export JAVA_HOME="$(/usr/libexec/java_home)"
+eval "$(rbenv init - zsh)"
+alias bs='bundle exec rspec'
+alias zs='zeus rspec'
+alias be='bundle exec'
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -80,3 +91,16 @@ export PATH="bin:/opt/boxen/rbenv/shims:/opt/boxen/rbenv/bin:/opt/boxen/rbenv/pl
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias vi='/opt/boxen/homebrew/Cellar/vim/7.4.335/bin/vim -u "~/dotfiles/.vimrc"'
 alias vim='vi'
+alias pc='muster console production'
+alias kapow='touch ~/.pow/restart.txt'
+alias int='cd ~/src/intercom'
+alias gcob="git checkout -b"
+alias gcom="git checkout master"
+alias grm="git rebase master"
+alias grc="git rebase --continue"
+alias grim="git rebase -i master --autosquash"
+alias gpm="git pull origin master"
+alias gd="git diff --color"
+gac() { git add . && git commit -m "$*"  }
+gaf() { git add . && git commit -am "fixup! $*"  }
+gas() { git add . && git commit -am "squash! $*"  }
