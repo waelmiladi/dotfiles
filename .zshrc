@@ -94,6 +94,7 @@ alias vim='vi'
 alias pc='muster console production'
 alias kapow='touch ~/.pow/restart.txt'
 alias int='cd ~/src/intercom'
+alias ing='cd ~/src/ingress'
 alias gcob="git checkout -b"
 alias gcom="git checkout master"
 alias grm="git rebase master"
@@ -101,6 +102,7 @@ alias grc="git rebase --continue"
 alias grim="git rebase -i master --autosquash"
 alias gpm="git pull origin master"
 alias gd="git diff --color"
+alias amen="git ci --amend"
 gac() { git add . && git commit -m "$*"  }
 gaf() { git add . && git commit -am "fixup! $*"  }
 gas() { git add . && git commit -am "squash! $*"  }
