@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-export ZSH=$HOME/.oh-my-zsh
+export ZSH=$HOME/dotfiles/zsh
 
 export BOXEN_MYSQL_PORT=13306
 export BOXEN_MONGODB_PORT=17017
