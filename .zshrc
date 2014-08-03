@@ -95,6 +95,8 @@ alias pc='muster console production'
 alias kapow='touch ~/.pow/restart.txt'
 alias int='cd ~/src/intercom'
 alias ing='cd ~/src/ingress'
+
+alias gs='git status'
 alias gcob="git checkout -b"
 alias gcom="git checkout master"
 alias grm="git rebase master"
