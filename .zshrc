@@ -92,17 +92,22 @@ alias be='bundle exec'
 alias vi='/opt/boxen/homebrew/Cellar/vim/7.4.335/bin/vim -u "~/dotfiles/.vimrc"'
 alias vim='vi'
 alias pc='muster console production'
+alias rc='rails c'
 alias kapow='touch ~/.pow/restart.txt'
 alias int='cd ~/src/intercom'
 alias ing='cd ~/src/ingress'
+alias con='ssh ec2-user@console.intercom.io'
 
 alias gs='git status'
+alias gp='git pull'
 alias gcob="git checkout -b"
 alias gcom="git checkout master"
 alias grm="git rebase master"
 alias grc="git rebase --continue"
 alias grim="git rebase -i master --autosquash"
 alias gpm="git pull origin master"
+alias gpo="git push origin"
+alias gco="git co"
 alias gd="git diff --color"
 alias amen="git ci --amend"
 gac() { git add . && git commit -m "$*"  }
