@@ -4,28 +4,71 @@
 # This script creates symlinks from the home directory to any desired dotfiles in ~/dotfiles
 ############################
 
-########## Variables
+cd ~
 
-dir=~/dotfiles                    # dotfiles directory
-olddir=~/dotfiles_old             # old dotfiles backup directory
-files=".vimrc .vim .zshrc zsh"    # list of files/folders to symlink in homedir
+git config --global alias.co checkout
+git config --global alias.br branch
+git config --global alias.ci commit
+git config --global alias.st status
 
-##########
+git config --global user.name "Waheed El Miladi"
+git config --global user.email waheed@intercom.io
 
-# create dotfiles_old in homedir
-echo -n "Creating $olddir for backup of any existing dotfiles in ~ ..."
-mkdir -p $olddir
-echo "done"
+echo "Installing Homebrew"
+ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
-# change to the dotfiles directory
-echo -n "Changing to the $dir directory ..."
-cd $dir
-echo "done"
+echo "Installing MySQL"
+brew install mysql
+ln -sfv /usr/local/opt/mysql/*.plist ~/Library/LaunchAgents
+launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist
 
-# move any existing dotfiles in homedir to dotfiles_old directory, then create symlinks from the homedir to any files in the ~/dotfiles directory specified in $files
-for file in $files; do
-    echo "Moving any existing dotfiles from ~ to $olddir"
-    mv ~/.$file ~/dotfiles_old/
-    echo "Creating symlink to $file in home directory."
-    ln -s $dir/$file ~/.$file
-done
+echo "Installing MongoDB"
+cd /usr/local/Library/Formula
+git checkout ad159e5 /usr/local/Library/Formula/mongodb.rb
+brew install mongodb
+ln -sfv /usr/local/opt/mongodb/*.plist ~/Library/LaunchAgents
+launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mongodb.plist
+git reset --hard
+
+
+echo "Installing Redis"
+brew install redis
+ln -sfv /usr/local/opt/redis/*.plist ~/Library/LaunchAgents
+launchctl load ~/Library/LaunchAgents/homebrew.mxcl.redis.plist
+
+echo "Installing Memcached"
+brew install memcached
+ln -sfv /usr/local/opt/memcached/*.plist ~/Library/LaunchAgents
+launchctl load ~/Library/LaunchAgents/homebrew.mxcl.memcached.plist
+
+echo "Installing rbenv"
+brew install rbenv
+
+echo "Installing ruby 2.0.0-p353"
+brew install ruby-build
+
+echo "Installing ruby-build"
+rbenv install 2.0.0-p353
+rbenv global 2.0.0-p353
+rbenv rehash
+
+echo "Install oh-my-zsh"
+curl -L http://install.ohmyz.sh | sh
+rm ~/.zshrc
+ln-s .zshrc ~/
+chsh -s /bin/zsh
+source ~/.zshrc
+
+echo "Installing vim"
+brew switch vim 7.4.488
+brew install vim
+mkdir .vim/backups
+mkdir .vim/tmp
+mkdir .vim/colors
+cp codeschool.vim ~/.vim/colors
+git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+rm ~/.vimrc
+ln-s .vimrc ~/.vimrc
+source ~/.vimrc
+
+git config --global core.editor /usr/local/Cellar/vim/7.4.488/bin/vim

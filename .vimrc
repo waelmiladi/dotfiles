@@ -114,17 +114,8 @@ Bundle 'wincent/Command-T'
 execute pathogen#infect()
 
 
-" Conditionally set theme and windows
-if has('gui_running')
-  set background=light
-  colorscheme solarized
-  let g:solarized_contrast="high"
-  let g:solarized_visibility="high"
-  set scrolloff=3
-else
-  set background=dark
-  colorscheme codeschool
-endif
+set background=dark
+colorscheme codeschool
 
 autocmd User fugitive
    \ if fugitive#buffer().type() =~# '^\%(tree\|blob\)$' |
