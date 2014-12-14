@@ -72,3 +72,7 @@ ln-s .vimrc ~/.vimrc
 source ~/.vimrc
 
 git config --global core.editor /usr/local/Cellar/vim/7.4.488/bin/vim
+
+brew install node
+npm install -g ember-cli
+npm install -g bower
