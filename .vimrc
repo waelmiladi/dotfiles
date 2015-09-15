@@ -26,11 +26,12 @@ set numberwidth=5
 set nocompatible               " be iMproved
 filetype off "This need to be set before running bundle stuff
 set rtp+=~/.vim/bundle/Vundle.vim/
-call vundle#rc()
+
+call vundle#begin()
 
 " let Vundle manage Vundle
 " required!
-Bundle 'gmarik/vundle'
+Plugin 'VundleVim/Vundle.vim'
 
 Bundle 'FuzzyFinder'
 Bundle 'Keithbsmiley/rspec.vim.git'
@@ -111,7 +112,8 @@ Bundle "tpope/vim-pathogen"
 Bundle 'Raimondi/delimitMate'
 Bundle 'marijnh/tern_for_vim'
 Bundle 'wincent/Command-T'
-execute pathogen#infect()
+
+call vundle#end()
 
 
 set background=dark
