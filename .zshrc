@@ -7,12 +7,13 @@ ZSH_THEME="robbyrussell"
 plugins=(git ruby osx rails)
 
 source ~/.oh-my-zsh/oh-my-zsh.sh
+source ~/.nvm/nvm.sh
 unsetopt correct
 unsetopt correct_all
 
 # User configuration
 
-export PATH=/Users/waheedel/.rbenv/shims:/Users/waheedel/.rbenv/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/Users/waheedel/npm/bin
+export PATH=/Users/waheedel/.rbenv/shims:/Users/waheedel/.rbenv/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/Users/waheedel/npm/bin:/Users/waheedel/Library/Android/sdk/platform-tools
 export JAVA_HOME="$(/usr/libexec/java_home)"
 export FORCE_INTERCOMRADE=true
 export DISABLE_SPRING=true
@@ -33,7 +34,7 @@ alias int='cd ~/src/intercom'
 alias iu='gp && bundle && rake db:migrate'
 alias ing='cd ~/src/ingress'
 alias emb='cd ~/src/embercom'
-alias eu='gp && npm install'
+alias eu='gp && rm -rf node_modules/ && npm install'
 alias con='ssh ec2-user@console.intercom.io'
 
 alias gbd='git branch --merged | grep -v ".\smaster" | xargs git branch -d'
@@ -49,10 +50,13 @@ alias grim="git rebase -i master --autosquash"
 alias gpm="git pull origin master"
 alias gpo="git push origin"
 alias gd="git diff --color"
-alias amen="git ci --amend"
+alias amen="git ci --amend --no-edit"
 alias gss="git stash"
 alias gsa="git stash apply"
 gcim () { git commit -m "$*" }
 gac() { git add . && git commit -m "$*"  }
 gaf() { git add . && git commit -am "fixup! $*"  }
 gas() { git add . && git commit -am "squash! $*"  }
+
+export NVM_DIR="/Users/waheedel/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm

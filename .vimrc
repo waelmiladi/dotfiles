@@ -77,7 +77,8 @@ Bundle 'pangloss/vim-javascript'
 Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
-let g:syntastic_javascript_syntax_checker = 'jshint'
+let g:syntastic_javascript_checkers = ['jsxhint']
+let g:syntastic_javascript_syntax_checker = 'jsxhint'
 let g:syntastic_check_on_open=1
 let g:syntastic_always_populate_loc_list=1
 let g:syntastic_ruby_exec = "/Users/waheedel/.rvm/rubies/ruby-2.1.0/bin/ruby"
@@ -112,6 +113,7 @@ Bundle "tpope/vim-pathogen"
 Bundle 'Raimondi/delimitMate'
 Bundle 'marijnh/tern_for_vim'
 Bundle 'wincent/Command-T'
+Bundle 'wting/rust.vim'
 
 call vundle#end()
 
@@ -230,6 +232,9 @@ noremap <C-l>  <C-w>l
 
 let g:session_autosave = 'yes'
 let g:session_autoload = 'yes'
+
+let g:racer_cmd = "~/Developer/racer/target/release/racer"
+let $RUST_SRC_PATH="~/Developer/rust-1.0.0/src"
 
 syntax on
 filetype plugin indent on
