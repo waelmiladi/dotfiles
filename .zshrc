@@ -13,18 +13,19 @@ unsetopt correct_all
 
 # User configuration
 
-export PATH=/Users/waheedel/.rbenv/shims:/Users/waheedel/.rbenv/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/Users/waheedel/npm/bin:/Users/waheedel/Library/Android/sdk/platform-tools
-export JAVA_HOME="$(/usr/libexec/java_home)"
+
+export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/Users/waheedel/npm/bin:/Users/waheedel/Library/Android/sdk/platform-tools
+export JAVA_HOME="$(/usr/libexec/java_home -v 1.8)"
 export FORCE_INTERCOMRADE=true
 export DISABLE_SPRING=true
-eval "$(rbenv init - zsh)"
+#eval "$(rbenv init - zsh)"
 alias bs='bundle exec rspec'
 alias bc='bundle exec cucumber'
 alias zs='zeus rspec'
 alias be='bundle exec'
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias vi='/usr/local/Cellar/vim/7.4.488/bin/vim -u "~/.vimrc"'
+alias vi='/usr/local/Cellar/vim/7.4.1525/bin/vim -u "~/.vimrc"'
 alias vim='vi'
 alias pc='be muster console production'
 alias rc='bundle exec rails c'
@@ -58,5 +59,6 @@ gac() { git add . && git commit -m "$*"  }
 gaf() { git add . && git commit -am "fixup! $*"  }
 gas() { git add . && git commit -am "squash! $*"  }
 
+[ -f /opt/boxen/env.sh  ] && source /opt/boxen/env.sh
 export NVM_DIR="/Users/waheedel/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
