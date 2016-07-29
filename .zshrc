@@ -14,19 +14,18 @@ unsetopt correct_all
 # User configuration
 
 
-export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/Users/waheedel/npm/bin:/Users/waheedel/Library/Android/sdk/platform-tools
+export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/Users/waheedel/npm/bin:/Users/waheedel/Library/Android/sdk/platform-tools:/usr/local/go/bin
 export JAVA_HOME="$(/usr/libexec/java_home -v 1.8)"
+export INTERCOM_USER="waheed"
 export FORCE_INTERCOMRADE=true
 export DISABLE_SPRING=true
-#eval "$(rbenv init - zsh)"
 alias bs='bundle exec rspec'
 alias bc='bundle exec cucumber'
 alias zs='zeus rspec'
 alias be='bundle exec'
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
 alias vi='/usr/local/Cellar/vim/7.4.1525/bin/vim -u "~/.vimrc"'
 alias vim='vi'
+alias ngrok='~/Applications/ngrok'
 alias pc='be muster console production'
 alias rc='bundle exec rails c'
 alias mig='bundle exec rake db:migrate'
@@ -41,7 +40,7 @@ alias con='ssh ec2-user@console.intercom.io'
 alias gbd='git branch --merged | grep -v ".\smaster" | xargs git branch -d'
 alias gg='git grep'
 alias gs='git status'
-alias gp='git pull'
+alias gp='git pull && git fetch --prune origin'
 alias gc='git checkout'
 alias gcob="git checkout -b"
 alias gcom="git checkout master"
@@ -58,6 +57,8 @@ gcim () { git commit -m "$*" }
 gac() { git add . && git commit -m "$*"  }
 gaf() { git add . && git commit -am "fixup! $*"  }
 gas() { git add . && git commit -am "squash! $*"  }
+
+alias hc="hub compare"
 
 [ -f /opt/boxen/env.sh  ] && source /opt/boxen/env.sh
 export NVM_DIR="/Users/waheedel/.nvm"
