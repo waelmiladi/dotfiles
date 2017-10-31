@@ -1,6 +1,8 @@
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
+
 # Path to your oh-my-zsh installation.
-export ZSH=$HOME/.oh-my-zsh/
-ulimit -n 4096
+export ZSH=/Users/waheedelmiladi/.oh-my-zsh
 
 ZSH_THEME="robbyrussell"
 
@@ -13,29 +15,23 @@ unsetopt correct_all
 
 # User configuration
 
-
-export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/Users/waheedel/npm/bin:/Users/waheedel/Library/Android/sdk/platform-tools:/usr/local/go/bin
+export PATH=$HOME/.pilot/bin:$HOME/.rbenv/shims:$HOME/.yarn/bin::/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin
 export JAVA_HOME="$(/usr/libexec/java_home -v 1.8)"
 export INTERCOM_USER="waheed"
 export FORCE_INTERCOMRADE=true
-export DISABLE_SPRING=true
+export BINTRAY_USER=waheed
+export BINTRAY_API_KEY={{api key}}
+
+alias pei='pilot exec intercom'
+alias psi='pilot start intercom'
+alias pri='pilot restart intercom'
 alias bs='bundle exec rspec'
-alias bc='bundle exec cucumber'
-alias zs='zeus rspec'
-alias be='bundle exec'
-alias vi='/usr/local/Cellar/vim/7.4.1525/bin/vim -u "~/.vimrc"'
-alias vim='vi'
-alias ngrok='~/Applications/ngrok'
-alias pc='be muster console production'
-alias rc='bundle exec rails c'
-alias mig='bundle exec rake db:migrate'
-alias kapow='touch ~/.pow/restart.txt'
+alias pc='hammer console production'
+alias rc='script/console'
 alias int='cd ~/src/intercom'
 alias iu='gp && bundle && rake db:migrate'
-alias ing='cd ~/src/ingress'
 alias emb='cd ~/src/embercom'
-alias eu='gp && rm -rf node_modules/ && npm install'
-alias con='ssh ec2-user@console.intercom.io'
+alias yu='gp && yarn install'
 
 alias gbd='git branch --merged | grep -v ".\smaster" | xargs git branch -d'
 alias gg='git grep'
@@ -60,6 +56,4 @@ gas() { git add . && git commit -am "squash! $*"  }
 
 alias hc="hub compare"
 
-[ -f /opt/boxen/env.sh  ] && source /opt/boxen/env.sh
-export NVM_DIR="/Users/waheedel/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+nvm use &>/dev/null
